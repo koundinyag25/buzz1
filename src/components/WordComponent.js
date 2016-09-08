@@ -19,7 +19,6 @@ class WordComponent extends React.Component {
 }
 
 componentDidMount(){
-  console.log(this.props.params);
   let boop = this.props.params.key
 this.serverRequest = $.get('http://127.0.0.1:3000/words/'+ boop + '/'+ this.props.params.diff ,(res)=>{
       this.setState({

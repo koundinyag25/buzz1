@@ -77,7 +77,7 @@ onTakeTest(){
   _.forEach(wordsEle,(data)=>{
     word.push(<div id='word' className='well' key={data.getAttribute('value')} value={data.getAttribute('value')}>{data.innerHTML}</div>);
   });
-return shuffle(word[this.state.wordIndex]);
+return word[this.state.wordIndex];
 }
 
 renderTestMeanings(){
@@ -87,7 +87,7 @@ renderTestMeanings(){
     let x = data.innerHTML;
       definition.push(<div key={data.getAttribute('value') }><input type='radio' name='radio'  value={data.getAttribute('value')} onClick={(evt)=>{evt.preventDefault()},this.onOptionSelect.bind(this,data.getAttribute('value'))}/>{data.innerHTML}</div>);
      });
-     return definition;
+     return _.shuffle(definition);
 }
 onNext(){
 
@@ -98,7 +98,6 @@ onNext(){
 onOptionSelect(value,onNext){
 
   let wordIdValue = document.getElementById('word').getAttribute('value');
-  console.log('the wordIndex',this.state.wordIndex);
   if(wordIdValue === value){
     this.setState(function(state,props){
        return{
@@ -115,8 +114,6 @@ onOptionSelect(value,onNext){
        }
   });
 } else if (this.state.wordIndex === 4) {
-
-  console.log('the wordIndexState',this.state.wordIndex)
      this.setState({
         style1 : {
           display : ''

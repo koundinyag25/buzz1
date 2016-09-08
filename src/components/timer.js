@@ -25,7 +25,6 @@ class CountdownTimer extends React.Component {
       document.getElementById('span').innerHTML='Times Up';
       let userTestChoice = window.confirm("want to take the test?");
       if(userTestChoice === true){
-       console.log(this.props.wordId);
       hashHistory.push('/test/'+this.props.wordId);
       }else{
         alert('You can practice here instead');
